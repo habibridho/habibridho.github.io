@@ -1,0 +1,9 @@
+version: "3.7"
+
+services:
+  server:
+    image: nginx:1.17.6
+    volumes:
+      - "./:/usr/share/nginx/html:ro"
+    ports:
+      - "8080:80"
