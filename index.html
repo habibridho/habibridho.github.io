@@ -10,8 +10,8 @@
 <body>
     <!-- Hero Section -->
     <section id="hero" class="fullscreen">
-        <h1>HELLO WORLD</h1>
-        <p>Short description about me</p>
+        <h1>Hi there!</h1>
+        <p>I'm <strong>Habib Ridho</strong>, Software Engineer with 10 years of experience.<br>See my career journey <a href="#timeline">here</a></p>
     </section>
 
     <!-- Timeline Section -->
@@ -31,5 +31,21 @@
         <p>Email: example@example.com</p>
         <p>LinkedIn: <a href="#">LinkedIn Profile</a></p>
     </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const links = document.querySelectorAll("a[href^='#']");
+            links.forEach(link => {
+                link.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    const targetId = this.getAttribute("href").substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: "smooth" });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
