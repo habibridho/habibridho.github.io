@@ -1,0 +1,384 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #0f0f0f;
+  color: #e8e8e8;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+/* ── Header ── */
+
+header {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #f5f5f5;
+}
+
+.subtitle {
+  margin-top: 0.35rem;
+  font-size: 1rem;
+  color: #6eb5ff;
+}
+
+.location {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: #888;
+}
+
+.contact {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+}
+
+.contact a {
+  color: #aaa;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.contact a:hover {
+  color: #6eb5ff;
+}
+
+.contact .sep {
+  margin: 0 0.4rem;
+  color: #444;
+}
+
+/* ── Sections ── */
+
+section {
+  margin-bottom: 3rem;
+}
+
+h2 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #888;
+  margin-bottom: 1.25rem;
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f5f5f5;
+}
+
+/* ── Company cards ── */
+
+.company-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.company-card {
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  background: #141414;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.company-card:hover {
+  border-color: #3a3a3a;
+}
+
+.company-card[open] {
+  border-color: #3d3d3d;
+}
+
+.company-grid:has(.company-card[open]) {
+  grid-template-columns: 1fr;
+}
+
+.company-card__summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  padding: 1.25rem;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.company-card__top {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+}
+
+.company-card__summary::-webkit-details-marker {
+  display: none;
+}
+
+.company-card__summary::marker {
+  display: none;
+  content: "";
+}
+
+.company-card__logo {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #1a1a1a;
+}
+
+.company-card__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.company-card__period {
+  margin-top: 0.15rem;
+  font-size: 0.8125rem;
+  color: #666;
+}
+
+.company-card__highlight {
+  margin-top: 0.35rem;
+  font-size: 0.8125rem;
+  color: #999;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.skill-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  list-style: none;
+  padding-left: calc(2.5rem + 0.875rem);
+}
+
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.55rem 0.2rem 0.4rem;
+  font-size: 0.6875rem;
+  color: #aaa;
+  background: #1a1a1a;
+  border: 1px solid #262626;
+  border-radius: 999px;
+  line-height: 1.4;
+}
+
+.skill-pill__icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.company-card__chevron {
+  flex-shrink: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-top: 0.4rem;
+  border-right: 1.5px solid #555;
+  border-bottom: 1.5px solid #555;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.company-card[open] .company-card__chevron {
+  transform: rotate(-135deg);
+  margin-top: 0.6rem;
+  border-color: #6eb5ff;
+}
+
+.company-card__body {
+  padding: 0 1.25rem 1.25rem;
+  border-top: 1px solid #222;
+}
+
+/* ── Timeline ── */
+
+.timeline {
+  list-style: none;
+  padding: 1.25rem 0 0 1rem;
+  border-left: 1px solid #2a2a2a;
+}
+
+.timeline__item {
+  position: relative;
+  padding-left: 1.25rem;
+  padding-bottom: 1.5rem;
+}
+
+.timeline__item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline__item::before {
+  content: "";
+  position: absolute;
+  left: -1rem;
+  top: 0.45rem;
+  width: 7px;
+  height: 7px;
+  margin-left: -3px;
+  border-radius: 50%;
+  background: #333;
+  border: 1px solid #555;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.company-card[open] .timeline__item:first-child::before {
+  background: #6eb5ff;
+  border-color: #6eb5ff;
+}
+
+.timeline__header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.timeline__title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e0e0e0;
+}
+
+.timeline__date {
+  font-size: 0.75rem;
+  color: #666;
+  white-space: nowrap;
+}
+
+.timeline__item ul {
+  list-style: none;
+}
+
+.timeline__item ul li {
+  position: relative;
+  padding-left: 0.875rem;
+  font-size: 0.8125rem;
+  color: #999;
+  margin-bottom: 0.3rem;
+  line-height: 1.5;
+}
+
+.timeline__item ul li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: #444;
+}
+
+/* ── Education ── */
+
+.education-card {
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  background: #141414;
+  padding: 1.25rem;
+}
+
+.education-card__header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+}
+
+.education-card__school {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #e8e8e8;
+}
+
+.education-card__date {
+  font-size: 0.8125rem;
+  color: #666;
+  white-space: nowrap;
+}
+
+.education-card__degree {
+  margin-top: 0.35rem;
+  font-size: 0.875rem;
+  color: #999;
+}
+
+/* ── Footer ── */
+
+footer {
+  padding-top: 2rem;
+  border-top: 1px solid #2a2a2a;
+}
+
+footer p {
+  font-size: 0.8125rem;
+  color: #555;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 560px) {
+  .container {
+    padding: 2rem 1.25rem 3rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .company-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-pills {
+    padding-left: 0;
+  }
+
+  .timeline__header {
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}

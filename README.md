@@ -1,12 +1,21 @@
 # habibridho.github.io
-This repo consists the code of [my personal website](https://habibridho.github.io). The web page is based on [Agency Template](http://startbootstrap.com/template-overviews/agency/).
 
-## Development
-The easiest way to run this website on local machine is using `docker-compose`.
+Personal website for [Habib Ridho](https://habibridho.github.io) — a minimal, static resume page hosted on GitHub Pages.
+
+## Structure
+
+- `index.html` — experience and education
+- `styles.css` — dark minimal theme
+- `resume.md` — source of truth for resume content
+
+## Local preview
+
 ```bash
-docker-compose up
+python3 -m http.server 8080
 ```
 
-## Copyright and License
+Open http://localhost:8080
 
-Copyright 2013-2015 Iron Summit Media Strategies, LLC. Code released under the [Apache 2.0](https://github.com/IronSummitMedia/startbootstrap-agency/blob/gh-pages/LICENSE) license.
+## Deploy
+
+Push to the branch configured in GitHub repository Settings → Pages. The site updates automatically at https://habibridho.github.io.
